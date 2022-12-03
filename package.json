@@ -1,0 +1,32 @@
+{
+	"name": "set.prototype.difference",
+	"version": "0.0.0",
+	"description": "An ESnext spec-compliant `Set.prototype.difference` shim/polyfill/replacement that works as far down as ES3",
+	"main": "index.js",
+	"exports": {
+		".": "./index.js",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/es-shims/Set.prototype.difference.git"
+	},
+	"keywords": [
+		"javascript",
+		"ecmascript",
+		"polyfill",
+		"shim",
+		"es-shims",
+		"Set",
+		"difference"
+	],
+	"author": "Jordan Harband <ljharb@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/es-shims/Set.prototype.difference/issues"
+	},
+	"homepage": "https://github.com/es-shims/Set.prototype.difference#readme"
+}
