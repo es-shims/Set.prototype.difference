@@ -1,0 +1,32 @@
+name: 'Tests: node.js: shimmed'
+
+on: [pull_request, push]
+
+jobs:
+  majors:
+    name: 'majors, shimmed tests'
+    continue-on-error: true
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - '0.11.14'
+          - '0.10'
+          - '0.8'
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm run test:shimmed
+
+  node:
+    name: 'node, shimmed tests'
+    needs: [majors]
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'

@@ -1,0 +1,50 @@
+{
+	"root": true,
+
+	"extends": "@ljharb",
+
+	"rules": {
+		"id-length": 0,
+		"multiline-comment-style": 0,
+		"new-cap": [2, {
+			"capIsNewExceptions": [
+				"Call",
+				"GetIntrinsic",
+				"GetKeysIterator",
+				"GetSetRecord",
+				"IteratorStep",
+				"IteratorValue",
+				"RequireObjectCoercible",
+				"SetDataHas",
+				"ToBoolean",
+
+				// GetSetRecord
+				"Get",
+				"IsCallable",
+				"ToIntegerOrInfinity",
+				"ToNumber",
+				"Type",
+				// GetKeysIterator
+				"Call",
+				"Get",
+				"IsCallable",
+				"Type",
+				// SetDataHas
+				"IsArray",
+				"SameValueZero",
+			],
+		}],
+		"object-curly-newline": "off",
+		"sort-keys": "off",
+	},
+
+	"overrides": [
+		{
+			"files": "test/**/*",
+			"rules": {
+				"max-lines-per-function": 0,
+				"max-params": 0,
+			},
+		},
+	],
+}
