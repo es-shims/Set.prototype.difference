@@ -11,13 +11,17 @@ var setEqual = function compareSetLikes(t, actual, expected, msg) {
 		st.ok(expected instanceof actual.constructor, 'expected is an instance of the actual constructor');
 		st.equal(actual.size, expected.size, 'they have the same size');
 
-		actual.forEach(function (x) {
-			st.ok(expected.has(x), debug(x) + ' (in actual) is in the expected set');
-		});
+		if (actual.forEach) {
+			actual.forEach(function (x) {
+				st.ok(expected.has(x), debug(x) + ' (in actual) is in the expected set');
+			});
+		}
 
-		expected.forEach(function (x) {
-			st.ok(actual.has(x), debug(x) + ' (in expected) is in the actual set');
-		});
+		if (expected.forEach) {
+			expected.forEach(function (x) {
+				st.ok(actual.has(x), debug(x) + ' (in expected) is in the actual set');
+			});
+		}
 
 		st.end();
 	});

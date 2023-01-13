@@ -12,6 +12,10 @@ var Type = require('es-abstract/2022/Type');
 
 var isNaN = require('es-abstract/helpers/isNaN');
 
+var callBind = require('call-bind');
+var isSet = require('is-set');
+var stopIterationIterator = require('stop-iteration-iterator');
+
 module.exports = function GetSetRecord(obj) {
 	if (Type(obj) !== 'Object') {
 		throw new $TypeError('obj is not an Object'); // step 1
@@ -37,6 +41,13 @@ module.exports = function GetSetRecord(obj) {
 	var keys = Get(obj, 'keys'); // step 9
 	if (!IsCallable(keys)) {
 		throw new $TypeError('keys is not a function'); // step 10
+	}
+	/* globals StopIteration: false */
+	if (isSet(obj) && typeof StopIteration === 'object') {
+		var boundKeys = callBind(keys);
+		keys = function keys() { // eslint-disable-line func-name-matching, no-shadow
+			return stopIterationIterator(boundKeys(this)); // eslint-disable-line no-invalid-this
+		};
 	}
 
 	return { '[[Set]]': obj, '[[Size]]': intSize, '[[Has]]': has, '[[Keys]]': keys }; // step 11
