@@ -4,7 +4,7 @@ var test = require('tape');
 
 var runTests = require('./builtin');
 
-test('shimmed', function (t) {
+test('native', function (t) {
 	runTests(t);
 
 	t.end();
