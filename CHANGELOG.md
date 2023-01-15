@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.2](https://github.com/es-shims/Set.prototype.difference/compare/v1.0.1...v1.0.2) - 2023-01-15
+
+### Commits
+
+- [Refactor] update `es-set`; use `es-set/tools` [`0a4aa6b`](https://github.com/es-shims/Set.prototype.difference/commit/0a4aa6b1a8b9a3cba85794b6b8d9e6dde47de257)
+
 ## [v1.0.1](https://github.com/es-shims/Set.prototype.difference/compare/v1.0.0...v1.0.1) - 2023-01-13
 
 ### Commits
