@@ -2,6 +2,7 @@
 
 var GetIntrinsic = require('get-intrinsic');
 
+var $RangeError = GetIntrinsic('%RangeError%');
 var $TypeError = GetIntrinsic('%TypeError%');
 
 var Get = require('es-abstract/2023/Get');
@@ -32,15 +33,19 @@ module.exports = function GetSetRecord(obj) {
 
 	var intSize = ToIntegerOrInfinity(numSize); // step 6
 
-	var has = Get(obj, 'has'); // step 7
-
-	if (!IsCallable(has)) {
-		throw new $TypeError('has is not a function'); // step 8
+	if (intSize < 0) {
+		throw new $RangeError('set size must be non-negative'); // step 7
 	}
 
-	var keys = Get(obj, 'keys'); // step 9
+	var has = Get(obj, 'has'); // step 8
+
+	if (!IsCallable(has)) {
+		throw new $TypeError('has is not a function'); // step 9
+	}
+
+	var keys = Get(obj, 'keys'); // step 10
 	if (!IsCallable(keys)) {
-		throw new $TypeError('keys is not a function'); // step 10
+		throw new $TypeError('keys is not a function'); // step 11
 	}
 	/* globals StopIteration: false */
 	if (isSet(obj) && typeof StopIteration === 'object') {
@@ -50,5 +55,5 @@ module.exports = function GetSetRecord(obj) {
 		};
 	}
 
-	return { '[[Set]]': obj, '[[Size]]': intSize, '[[Has]]': has, '[[Keys]]': keys }; // step 11
+	return { '[[Set]]': obj, '[[Size]]': intSize, '[[Has]]': has, '[[Keys]]': keys }; // step 12
 };
