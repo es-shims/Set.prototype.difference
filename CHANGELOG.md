@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0](https://github.com/es-shims/Set.prototype.difference/compare/v1.0.2...v1.1.0) - 2023-07-18
+
+### Commits
+
+- [Deps] update `define-properties`, `es-abstract`, `get-intrinsic` [`dc423d8`](https://github.com/es-shims/Set.prototype.difference/commit/dc423d85fbb5cb7c5212990f2c007603b11eb511)
+- [patch] remove GetKeysIterator and its callable check [`90dcf36`](https://github.com/es-shims/Set.prototype.difference/commit/90dcf3615cc5efd879abb4c19f0c97050331a341)
+- [Tests] remove unused shimmed tests [`f5d9655`](https://github.com/es-shims/Set.prototype.difference/commit/f5d965584a5870b4bcb7f99f7f881bb94fd4ac96)
+- [patch] throw on negative set sizes [`bfa0fcf`](https://github.com/es-shims/Set.prototype.difference/commit/bfa0fcf106bd904ed2158117b25b31fef2248dc9)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `aud`, `es6-shim`, `tape` [`5993d2a`](https://github.com/es-shims/Set.prototype.difference/commit/5993d2aaf6b5625957ec630301f28f0ec17cf950)
+
 ## [v1.0.2](https://github.com/es-shims/Set.prototype.difference/compare/v1.0.1...v1.0.2) - 2023-01-15
 
 ### Commits
