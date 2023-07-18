@@ -10,7 +10,7 @@
 			"capIsNewExceptions": [
 				"Call",
 				"GetIntrinsic",
-				"GetKeysIterator",
+				"GetIteratorFromMethod",
 				"GetSetRecord",
 				"IteratorStep",
 				"IteratorValue",
@@ -24,7 +24,6 @@
 				"ToIntegerOrInfinity",
 				"ToNumber",
 				"Type",
-				// GetKeysIterator
 				"Call",
 				"Get",
 				"IsCallable",
