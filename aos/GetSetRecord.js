@@ -4,11 +4,11 @@ var GetIntrinsic = require('get-intrinsic');
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var Get = require('es-abstract/2022/Get');
-var IsCallable = require('es-abstract/2022/IsCallable');
-var ToIntegerOrInfinity = require('es-abstract/2022/ToIntegerOrInfinity');
-var ToNumber = require('es-abstract/2022/ToNumber');
-var Type = require('es-abstract/2022/Type');
+var Get = require('es-abstract/2023/Get');
+var IsCallable = require('es-abstract/2023/IsCallable');
+var ToIntegerOrInfinity = require('es-abstract/2023/ToIntegerOrInfinity');
+var ToNumber = require('es-abstract/2023/ToNumber');
+var Type = require('es-abstract/2023/Type');
 
 var isNaN = require('es-abstract/helpers/isNaN');
 

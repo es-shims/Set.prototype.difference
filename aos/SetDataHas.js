@@ -4,8 +4,8 @@ var GetIntrinsic = require('get-intrinsic');
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var IsArray = require('es-abstract/2022/IsArray');
-var SameValueZero = require('es-abstract/2022/SameValueZero');
+var IsArray = require('es-abstract/2023/IsArray');
+var SameValueZero = require('es-abstract/2023/SameValueZero');
 
 var some = require('es-abstract/helpers/some');
 

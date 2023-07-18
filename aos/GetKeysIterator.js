@@ -4,10 +4,10 @@ var GetIntrinsic = require('get-intrinsic');
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var Call = require('es-abstract/2022/Call');
-var Get = require('es-abstract/2022/Get');
-var IsCallable = require('es-abstract/2022/IsCallable');
-var Type = require('es-abstract/2022/Type');
+var Call = require('es-abstract/2023/Call');
+var Get = require('es-abstract/2023/Get');
+var IsCallable = require('es-abstract/2023/IsCallable');
+var Type = require('es-abstract/2023/Type');
 
 // var assertRecord = require('es-abstract/helpers/assertRecord');
 

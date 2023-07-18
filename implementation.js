@@ -8,14 +8,13 @@ var $TypeError = GetIntrinsic('%TypeError%');
 
 var $Set = require('es-set/polyfill')();
 
-var Call = require('es-abstract/2022/Call');
-var IteratorStep = require('es-abstract/2022/IteratorStep');
-var IteratorValue = require('es-abstract/2022/IteratorValue');
-var ToBoolean = require('es-abstract/2022/ToBoolean');
-
+var Call = require('es-abstract/2023/Call');
 var GetSetRecord = require('./aos/GetSetRecord');
 var GetKeysIterator = require('./aos/GetKeysIterator');
+var IteratorStep = require('es-abstract/2023/IteratorStep');
+var IteratorValue = require('es-abstract/2023/IteratorValue');
 // var SetDataHas = require('./aos/SetDataHas');
+var ToBoolean = require('es-abstract/2023/ToBoolean');
 
 var isSet = require('is-set');
 
@@ -50,7 +49,7 @@ module.exports = function difference(other) {
 		var keysIter = GetKeysIterator(otherRec); // step 7.a
 		var next = true; // step 7.b
 		while (next) { // step 7.c
-			next = IteratorStep(keysIter['[[Iterator]]']); // step 7.c.i
+			next = IteratorStep(keysIter); // step 7.c.i
 			if (next) { // step 7.c.ii
 				var nextValue = IteratorValue(next); // step 7.c.ii.1
 				if (nextValue === 0) { // step 7.c.ii.2
