@@ -24,7 +24,6 @@
 		"prepublish": "not-in-publish || npm run prepublishOnly",
 		"pretest": "npm run --silent lint",
 		"tests-only": "nyc tape 'test/**/*.js'",
-		"test:shimmed": "nyc node test/builtin-shimmed",
 		"test:native": "nyc node test/native",
 		"prelint": "evalmd README.md",
 		"lint": "eslint --ext=js,mjs .",
