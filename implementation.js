@@ -40,6 +40,9 @@ module.exports = function difference(other) {
 	// if (thisSize <= otherRec['[[Size]]']) { // step 6
 	$setForEach(O, function (e) { // step 6.a
 		var inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[Set]]'], [e])); // step 6.a.i.1
+		if (!inOther && e === 0) {
+			inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[Set]]'], [-e])); // workaround for not having internal set data access
+		}
 		if (!inOther) { // step 6.a.i.2 (kinda)
 			$setAdd(result, e); // step 6.a.i.2.a (kinda)
 		}
