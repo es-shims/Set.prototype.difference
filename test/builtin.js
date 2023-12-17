@@ -5,6 +5,7 @@ var callBind = require('call-bind');
 var isEnumerable = Object.prototype.propertyIsEnumerable;
 var fnNamesConfigurable = require('functions-have-names').functionsHaveConfigurableNames();
 var hasStrictMode = require('has-strict-mode')();
+var gOPD = require('gopd');
 
 var runTests = require('./tests');
 
@@ -22,6 +23,20 @@ module.exports = function (t) {
 	t.test('enumerability', { skip: !defineProperties.supportsDescriptors }, function (et) {
 		et.equal(false, isEnumerable.call(Set.prototype, name), fullName + ' is not enumerable');
 		et.end();
+	});
+
+	t.test('descriptor', { skip: !defineProperties.supportsDescriptors }, function (dt) {
+		dt.deepEqual(
+			gOPD(Set.prototype, name),
+			{
+				value: method,
+				writable: true,
+				enumerable: false,
+				configurable: true
+			},
+			'descriptor is as expected'
+		);
+		dt.end();
 	});
 
 	t.test('bad object value', { skip: !hasStrictMode }, function (st) {
