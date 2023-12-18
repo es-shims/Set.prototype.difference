@@ -5,6 +5,7 @@ var $Map = require('es-map/polyfill')();
 var forEach = require('for-each');
 var v = require('es-value-fixtures');
 var debug = require('object-inspect');
+var getIterator = require('es-get-iterator');
 
 var setEqual = function compareSetLikes(t, actual, expected, msg) {
 	t.test('setlikes: ' + msg, function (st) {
@@ -315,19 +316,7 @@ module.exports = function (difference, t) {
 				throw new EvalError('Set.prototype.difference should not call its argument’s has method when this.size > arg.size');
 			},
 			keys: function () {
-				var done = false;
-				return {
-					next: function () {
-						try {
-							return {
-								value: done ? void undefined : -0,
-								done: done
-							};
-						} finally {
-							done = true;
-						}
-					}
-				};
+				return getIterator([-0]);
 			}
 		};
 
@@ -347,7 +336,7 @@ module.exports = function (difference, t) {
 			size: 2,
 			has: undefined,
 			keys: function () {
-				return [2, 3];
+				return getIterator([2, 3]);
 			}
 		};
 
@@ -455,7 +444,7 @@ module.exports = function (difference, t) {
 			size: undefined,
 			has: function () {},
 			keys: function () {
-				return [2, 3];
+				return getIterator([2, 3]);
 			}
 		};
 		st['throws'](
