@@ -310,10 +310,9 @@ module.exports = function (difference, t) {
 	t.test('test262: test/built-ins/Set/prototype/difference/converts-negative-zero', function (st) {
 		var setlikeWithMinusZero = {
 			size: 1,
-			has: function (x) {
+			has: function () {
 				// impossible to avoid this call since we do not have internal set data access
-				// throw new EvalError('Set.prototype.difference should not call its argument’s has method when this.size > arg.size');
-				return debug(x) === '-0';
+				throw new EvalError('Set.prototype.difference should not call its argument’s has method when this.size > arg.size');
 			},
 			keys: function () {
 				var done = false;

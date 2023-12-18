@@ -13,15 +13,22 @@ var GetIteratorFromMethod = require('es-abstract/2023/GetIteratorFromMethod');
 var GetSetRecord = require('./aos/GetSetRecord');
 var IteratorStep = require('es-abstract/2023/IteratorStep');
 var IteratorValue = require('es-abstract/2023/IteratorValue');
+var SameValueZero = require('es-abstract/2023/SameValueZero');
 // var SetDataHas = require('./aos/SetDataHas');
 var ToBoolean = require('es-abstract/2023/ToBoolean');
 
+var callBound = require('call-bind/callBound');
 var isSet = require('is-set');
+var forEach = require('es-abstract/helpers/forEach');
 
 var tools = require('es-set/tools');
 var $setForEach = tools.forEach;
 var $setAdd = tools.add;
 var $setSize = tools.size;
+
+var $push = callBound('.Array.prototype.push');
+
+var deleted = {};
 
 module.exports = function difference(other) {
 	var O = this; // step 1
@@ -37,19 +44,19 @@ module.exports = function difference(other) {
 
 	var result = new $Set();
 
-	// if (thisSize <= otherRec['[[Size]]']) { // step 6
-	$setForEach(O, function (e) { // step 6.a
-		var inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[Set]]'], [e])); // step 6.a.i.1
-		if (!inOther && e === 0) {
-			inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[Set]]'], [-e])); // workaround for not having internal set data access
-		}
-		if (!inOther) { // step 6.a.i.2 (kinda)
-			$setAdd(result, e); // step 6.a.i.2.a (kinda)
-		}
-	});
-	// } else { // step 7
-	if (thisSize > otherRec['[[Size]]']) {
+	if (thisSize <= otherRec['[[Size]]']) { // step 6
+		$setForEach(O, function (e) { // step 6.a
+			var inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[Set]]'], [e])); // step 6.a.i.1
+			if (!inOther) { // step 6.a.i.2 (kinda)
+				$setAdd(result, e); // step 6.a.i.2.a (kinda)
+			}
+		});
+	} else { // step 7
 		var keysIter = GetIteratorFromMethod(otherRec['[[Set]]'], otherRec['[[Keys]]']); // step 7.a
+		var resultSetData = [];
+		$setForEach(O, function (e) {
+			$push(resultSetData, e);
+		});
 		var next = true; // step 7.b
 		while (next) { // step 7.c
 			next = IteratorStep(keysIter); // step 7.c.i
@@ -58,19 +65,23 @@ module.exports = function difference(other) {
 				if (nextValue === 0) { // step 7.c.ii.2
 					nextValue = +0;
 				}
-			/*
-			if (SetDataHas(resultSetData, nextValue)) { // step 7.c.ii.3
-				// $push(resultSetData, nextValue); // step 7.c.ii.6.a
-				// a. Remove nextValue from resultSetData.
-			}
-			*/
+
+				// if (SetDataHas(resultSetData, nextValue)) { // step 7.c.ii.3
+				for (var i = 0; i < resultSetData.length; i += 1) {
+					// eslint-disable-next-line max-depth
+					if (SameValueZero(resultSetData[i], nextValue)) {
+						resultSetData[i] = deleted;
+					}
+				}
+				// }
 			}
 		}
-	/*
+
 		forEach(resultSetData, function (e) {
-			$setAdd(result, e);
+			if (e !== deleted) {
+				$setAdd(result, e);
+			}
 		});
-		*/
 	}
 
 	// var result = OrdinaryObjectCreate(%Set.prototype%, « [[SetData]] »); // step 8
