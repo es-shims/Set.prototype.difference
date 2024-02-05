@@ -2,9 +2,7 @@
 
 // Note: the commented out code is because there is no performant way in userland to do the optimization in step 7.
 
-var GetIntrinsic = require('get-intrinsic');
-
-var $TypeError = GetIntrinsic('%TypeError%');
+var $TypeError = require('es-errors/type');
 
 var $Set = require('es-set/polyfill')();
 

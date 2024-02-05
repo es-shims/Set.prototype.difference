@@ -1,9 +1,7 @@
 'use strict';
 
-var GetIntrinsic = require('get-intrinsic');
-
-var $RangeError = GetIntrinsic('%RangeError%');
-var $TypeError = GetIntrinsic('%TypeError%');
+var $RangeError = require('es-errors/range');
+var $TypeError = require('es-errors/type');
 
 var Get = require('es-abstract/2023/Get');
 var IsCallable = require('es-abstract/2023/IsCallable');

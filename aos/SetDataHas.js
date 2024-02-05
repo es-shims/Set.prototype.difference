@@ -1,8 +1,6 @@
 'use strict';
 
-var GetIntrinsic = require('get-intrinsic');
-
-var $TypeError = GetIntrinsic('%TypeError%');
+var $TypeError = require('es-errors/type');
 
 var IsArray = require('es-abstract/2023/IsArray');
 var SameValueZero = require('es-abstract/2023/SameValueZero');
