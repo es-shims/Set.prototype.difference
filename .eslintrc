@@ -16,6 +16,7 @@
 				"IteratorValue",
 				"RequireObjectCoercible",
 				"SetDataHas",
+				"SetDataSize",
 				"ToBoolean",
 
 				// GetSetRecord
