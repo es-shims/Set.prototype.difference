@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.4](https://github.com/es-shims/Set.prototype.difference/compare/v1.1.3...v1.1.4) - 2024-03-19
+
+### Commits
+
+- [meta] remove useless ESM [`6b200fa`](https://github.com/es-shims/Set.prototype.difference/commit/6b200fa98cb84ae5d89bfdf98480c0a255010018)
+- [Refactor] add `SetDataSize` [`ae0d37f`](https://github.com/es-shims/Set.prototype.difference/commit/ae0d37f1bf8e9a3a352e9d6782de7add974b5c06)
+- [Deps] update `call-bind`, `es-abstract`, `es-errors`, `is-set` [`d7cc20a`](https://github.com/es-shims/Set.prototype.difference/commit/d7cc20a0750bbf68c2ad74ddec71bef99a4bc71e)
+- [actions] remove redundant finisher [`2acda7c`](https://github.com/es-shims/Set.prototype.difference/commit/2acda7c1ec34a7469b00c27a4fbcb07396258079)
+- [Dev Deps] update `tape` [`e2d67e7`](https://github.com/es-shims/Set.prototype.difference/commit/e2d67e7af093d374bb3908b2d9cc770cfbf921a8)
+
 ## [v1.1.3](https://github.com/es-shims/Set.prototype.difference/compare/v1.1.2...v1.1.3) - 2024-02-04
 
 ### Commits
