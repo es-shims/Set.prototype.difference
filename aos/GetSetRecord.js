@@ -3,11 +3,11 @@
 var $RangeError = require('es-errors/range');
 var $TypeError = require('es-errors/type');
 
-var Get = require('es-abstract/2023/Get');
-var IsCallable = require('es-abstract/2023/IsCallable');
-var ToIntegerOrInfinity = require('es-abstract/2023/ToIntegerOrInfinity');
-var ToNumber = require('es-abstract/2023/ToNumber');
-var Type = require('es-abstract/2023/Type');
+var Get = require('es-abstract/2024/Get');
+var IsCallable = require('es-abstract/2024/IsCallable');
+var ToIntegerOrInfinity = require('es-abstract/2024/ToIntegerOrInfinity');
+var ToNumber = require('es-abstract/2024/ToNumber');
+var Type = require('es-abstract/2024/Type');
 
 var isNaN = require('es-abstract/helpers/isNaN');
 
