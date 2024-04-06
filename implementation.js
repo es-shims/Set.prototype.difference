@@ -9,11 +9,9 @@ var $Set = require('es-set/polyfill')();
 var Call = require('es-abstract/2024/Call');
 var GetIteratorFromMethod = require('es-abstract/2024/GetIteratorFromMethod');
 var GetSetRecord = require('./aos/GetSetRecord');
-var IteratorStep = require('es-abstract/2024/IteratorStep');
-var IteratorValue = require('es-abstract/2024/IteratorValue');
+var IteratorStepValue = require('es-abstract/2024/IteratorStepValue');
 var SameValueZero = require('es-abstract/2024/SameValueZero');
 // var SetDataHas = require('./aos/SetDataHas');
-var SetDataSize = require('./aos/SetDataSize');
 var ToBoolean = require('es-abstract/2024/ToBoolean');
 
 var callBound = require('call-bind/callBound');
@@ -23,6 +21,7 @@ var forEach = require('es-abstract/helpers/forEach');
 var tools = require('es-set/tools');
 var $setForEach = tools.forEach;
 var $setAdd = tools.add;
+var $setSize = tools.size;
 
 var $push = callBound('.Array.prototype.push');
 
@@ -38,7 +37,7 @@ module.exports = function difference(other) {
 
 	var otherRec = GetSetRecord(other); // step 3
 
-	var thisSize = SetDataSize(O); // step 5.a
+	var thisSize = $setSize(O); // SetDataSize(O.[[SetData]]); // step 5.a
 
 	var result = new $Set();
 
@@ -55,23 +54,24 @@ module.exports = function difference(other) {
 		$setForEach(O, function (e) {
 			$push(resultSetData, e);
 		});
-		var next = true; // step 6.b
-		while (next) { // step 6.c
-			next = IteratorStep(keysIter); // step 6.c.i
-			if (next) { // step 6.c.ii
-				var nextValue = IteratorValue(next); // step 6.c.ii.1
-				if (nextValue === 0) { // step 6.c.ii.2
-					nextValue = +0;
+		var next; // step 6.b
+		while (!keysIter['[[Done]]']) { // step 6.c
+			next = IteratorStepValue(keysIter); // step 6.c.i
+			if (!keysIter['[[Done]]']) { // step 6.c.ii
+				if (next === 0) { // step 6.c.ii.1
+					next = +0;
 				}
 
-				// if (SetDataHas(resultSetData, nextValue)) { // step 6.c.ii.3
+				// var valueIndex = SetDataIndex(resultSetData, next)); // step 6.c.ii.2
 				for (var i = 0; i < resultSetData.length; i += 1) {
 					// eslint-disable-next-line max-depth
-					if (SameValueZero(resultSetData[i], nextValue)) {
+					if (SameValueZero(resultSetData[i], next)) {
+						// if (valueIndex === 'NOT-FOUND') { // step 6.c.ii.3
+						// 	resultSetData[valueIndex] = 'EMPTY'; // step 6.c.ii.3.a
 						resultSetData[i] = deleted;
+						// }
 					}
 				}
-				// }
 			}
 		}
 
