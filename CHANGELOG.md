@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.5](https://github.com/es-shims/Set.prototype.difference/compare/v1.1.4...v1.1.5) - 2024-04-06
+
+### Commits
+
+- [Refactor] update spec from https://github.com/tc39/ecma262/pull/3306 [`6a1eda2`](https://github.com/es-shims/Set.prototype.difference/commit/6a1eda2dd167c78d755edb2be1eb745979bb97dd)
+- [Deps] update `es-abstract` [`1c500c3`](https://github.com/es-shims/Set.prototype.difference/commit/1c500c384a34f2b0343e3adb26540d3364b764ee)
+- [Dev Deps] update `@es-shims/api` [`997236a`](https://github.com/es-shims/Set.prototype.difference/commit/997236a247bf72beb7adf4d570164b9e4681aebb)
+
 ## [v1.1.4](https://github.com/es-shims/Set.prototype.difference/compare/v1.1.3...v1.1.4) - 2024-03-19
 
 ### Commits
