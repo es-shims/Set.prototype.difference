@@ -63,6 +63,7 @@
 		"@es-shims/api": "^2.5.1",
 		"@ljharb/eslint-config": "^21.1.1",
 		"auto-changelog": "^2.4.0",
+		"encoding": "^0.1.13",
 		"es-get-iterator": "^1.1.3",
 		"es-map": "^1.0.5",
 		"es-value-fixtures": "^1.4.2",
