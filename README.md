@@ -28,6 +28,9 @@ var shimmedResult = set1.difference(set2);
 assert.deepEqual(shimmedResult, new Set([1]));
 ```
 
+## Compatibility
+node v22 and equivalent versions of Chrome have Set difference, but has a bug with set-like arguments with non-SMI integer sizes.
+
 ## Tests
 Simply clone the repo, `npm install`, and run `npm test`
 

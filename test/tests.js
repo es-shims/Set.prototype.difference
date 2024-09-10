@@ -493,5 +493,28 @@ module.exports = function (difference, t) {
 		st.end();
 	});
 
+	t.test('works with a set-like of certain sizes', function (st) {
+		var setLike = {
+			size: Math.pow(2, 31),
+			has: function () {},
+			keys: function () {
+				throw new Error('Unexpected call to |keys| method');
+			}
+		};
+
+		st.doesNotThrow(
+			function () { difference(new $Set([1]), setLike); },
+			'2**31: `keys` function is not invoked'
+		);
+
+		setLike.size = Infinity;
+		st.doesNotThrow(
+			function () { difference(new $Set([1]), setLike); },
+			'∞: `keys` function is not invoked'
+		);
+
+		st.end();
+	});
+
 	return t.comment('tests completed');
 };
