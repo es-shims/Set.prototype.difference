@@ -53,5 +53,5 @@ module.exports = function GetSetRecord(obj) {
 		};
 	}
 
-	return { '[[Set]]': obj, '[[Size]]': intSize, '[[Has]]': has, '[[Keys]]': keys }; // step 12
+	return { '[[SetObject]]': obj, '[[Size]]': intSize, '[[Has]]': has, '[[Keys]]': keys }; // step 12
 };

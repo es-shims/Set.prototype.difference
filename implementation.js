@@ -43,13 +43,13 @@ module.exports = function difference(other) {
 
 	if (thisSize <= otherRec['[[Size]]']) { // step 5
 		$setForEach(O, function (e) { // step 5.a
-			var inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[Set]]'], [e])); // step 5.a.i.1
+			var inOther = ToBoolean(Call(otherRec['[[Has]]'], otherRec['[[SetObject]]'], [e])); // step 5.a.i.1
 			if (!inOther) { // step 5.a.i.2 (kinda)
 				$setAdd(result, e); // step 5.a.i.2.a (kinda)
 			}
 		});
 	} else { // step 6
-		var keysIter = GetIteratorFromMethod(otherRec['[[Set]]'], otherRec['[[Keys]]']); // step 6.a
+		var keysIter = GetIteratorFromMethod(otherRec['[[SetObject]]'], otherRec['[[Keys]]']); // step 6.a
 		var resultSetData = [];
 		$setForEach(O, function (e) {
 			$push(resultSetData, e);
