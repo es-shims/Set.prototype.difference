@@ -14,7 +14,7 @@ var SameValueZero = require('es-abstract/2024/SameValueZero');
 // var SetDataHas = require('./aos/SetDataHas');
 var ToBoolean = require('es-abstract/2024/ToBoolean');
 
-var callBound = require('call-bind/callBound');
+var callBound = require('call-bound');
 var isSet = require('is-set');
 var forEach = require('es-abstract/helpers/forEach');
 
