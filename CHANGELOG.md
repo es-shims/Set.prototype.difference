@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.7](https://github.com/es-shims/Set.prototype.difference/compare/v1.1.6...v1.1.7) - 2025-03-14
+
+### Commits
+
+- [actions] split out node 10-20, and 20+ [`bce4a13`](https://github.com/es-shims/Set.prototype.difference/commit/bce4a133747fa453a98e78bd3b08d0617ff7bfad)
+- [Dev Deps] update `@es-shims/api`, `@ljharb/eslint-config`, `auto-changelog`, `es-map`, `es-value-fixtures`, `for-each`, `gopd`, `has-strict-mode`, `object-inspect`, `tape` [`dc425de`](https://github.com/es-shims/Set.prototype.difference/commit/dc425dee07042bd3cbf7b5f3e4af9ff2e260c092)
+- [Deps] update `call-bind`, `es-abstract`, `es-set`, `stop-iteration-iterator` [`86b42ed`](https://github.com/es-shims/Set.prototype.difference/commit/86b42ed9229095e9670a0125e33ad1c48925c8b8)
+- [Refactor] use `call-bound` directly [`937aa54`](https://github.com/es-shims/Set.prototype.difference/commit/937aa542eff45b607bb8e07a19dd89e52f628815)
+- [Dev Deps] add missing peer dep [`9bf95f0`](https://github.com/es-shims/Set.prototype.difference/commit/9bf95f0f6b305015448c4c1014e134ce23b3def5)
+
 ## [v1.1.6](https://github.com/es-shims/Set.prototype.difference/compare/v1.1.5...v1.1.6) - 2024-09-10
 
 ### Commits
